@@ -41,7 +41,7 @@
 		  return function(id){ return cancel(id); };
 		})();
 
-		function resetTriggers(element){
+		var resetTriggers = function(element){
 			var triggers = element.__resizeTriggers__,
 				expand = triggers.firstElementChild,
 				contract = triggers.lastElementChild,
@@ -54,12 +54,12 @@
 			expand.scrollTop = expand.scrollHeight;
 		};
 
-		function checkTriggers(element){
+		var checkTriggers = function(element){
 			return element.offsetWidth != element.__resizeLast__.width ||
 						 element.offsetHeight != element.__resizeLast__.height;
 		}
 		
-		function scrollListener(e){
+		var scrollListener = function(e){
 			var element = this;
 			resetTriggers(this);
 			if (this.__resizeRAF__) cancelFrame(this.__resizeRAF__);
